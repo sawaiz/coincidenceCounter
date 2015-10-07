@@ -1,1 +1,1 @@
-Schematic Board layout, and test ardiono file. Designed to work with arduino nano as base board.
+Schematic Board layout, and test Arduino file. Designed to work with Arduino Nano as base board.

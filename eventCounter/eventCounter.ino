@@ -1,12 +1,18 @@
+#define inputPin1 2
+#define interupt1 0
+#define inputPin2 3
+#define interupt2 1
+
 int counts;
-int inputPin = 2;
 
 void setup()
 {
+  pinMode(inputPin1, INPUT);
+  pinMode(inputPin2, INPUT);
+
   Serial.begin(9600);
-  //pinMode(inputPin, INPUT);
   counts = 0;
-  attachInterrupt(0, blink, LOW);
+  attachInterrupt(interupt1, blink, LOW);
 }
 
 void loop()
@@ -18,20 +24,12 @@ void loop()
 
 void blink()
 {
-    detachInterrupt (0);
-    counts++;
-    //while(digitalRead(inputPin!=0)){
-      //Serial.println(digitalRead(inputPin));
-    //  }
-    delay(2);
-    attachInterrupt(0, blink, LOW);
+    detachInterrupt (interupt1);
+    if(digitalRead(inputPin2) == LOW && digitalRead(inputPin1) == LOW){
+      counts++;
+    }
+    while(digitalRead(inputPin2) == LOW || digitalRead(inputPin1) == LOW){
+      //delayMicroseconds(1);  
+    }
+    attachInterrupt(interupt1, blink, LOW);
 }
-
-
-
-
-
-
-
-
-
