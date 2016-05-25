@@ -1,9 +1,4 @@
 #Coincidence Counter
-The design takes a analog signal in through a SMA jack, amplifies, and digitizes it and allows multiple boards to stack and 'and' an unlimited number of channels. It allows configurations of single amplification, double amplification, inverting, and digitization of an incoming signal. The following subsections are involved in one board.
-
-- Digitize based on threshold
-- Amplify (10x)
-- Invert (-10x)
-- AND with previous channel
-
-These boards are designed to be stacking, meaning that the signal cascades down the stack of boards. The top board provides power (via a micro USB connection) and the true signal required by the first board to create a *one fold* coincidence output. A board at the bottom allows the output of the signal. 
+The design is an Arduino header that takes up to four analog signals in through a SMA jacks, amplifies and digitizes them and compares them with a four input and gate. The four 
+channels can be deactivated individually by a pin header jumper and have individual leds to show hits and a potentiometer to set the threshold value for the comparator. There is a 
+digital output of the coincidence as well as a digital output for each of the channels. 
